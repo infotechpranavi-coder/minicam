@@ -144,7 +144,7 @@ export const products: Product[] = [
     reviewCount: 268,
     badge: "HD 1080p",
     image: pen,
-    gallery: [pen, pocket, banner()],
+    gallery: [pen, pocket, keychain],
     short: "A genuine writing pen that records 1080p video with one click.",
     description:
       "Machined aluminium body, real ink refill and a discreet 1080p lens. Ideal for documenting meetings, inspections and field notes without extra hardware.",
@@ -449,10 +449,6 @@ export const products: Product[] = [
     features: ["Separation alerts", "Last-seen map", "12-month cell"],
   },
 ];
-
-function banner() {
-  return pen;
-}
 
 export const featuredProducts = products.filter((p) => p.badge === "Best Seller");
 
