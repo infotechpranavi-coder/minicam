@@ -30,19 +30,19 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-7xl items-center gap-3 px-4 sm:px-6">
-        <Link to="/" className="flex items-center gap-2 font-display text-lg font-bold tracking-tight">
+    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/88 backdrop-blur-xl">
+      <div className="mx-auto flex h-16 max-w-[72rem] items-center gap-6 px-5 sm:px-8">
+        <Link to="/" className="flex items-center gap-2 font-display text-lg font-semibold tracking-tight">
           <ShieldCheck className="size-6 text-primary" />
-          Sentra<span className="text-primary">Vue</span>
+          Mini <span className="text-primary">Camerawala</span>
         </Link>
 
-        <nav className="ml-6 hidden items-center gap-1 lg:flex">
+        <nav className="hidden items-center gap-1 lg:flex">
           {links.map((l) => (
             <Link
               key={l.to}
               to={l.to}
-              className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+              className="rounded-full px-3 py-1.5 text-[0.8125rem] font-medium text-muted-foreground transition-colors hover:text-foreground"
               activeProps={{ className: "text-foreground bg-secondary" }}
             >
               {l.label}
@@ -52,12 +52,12 @@ export function Navbar() {
 
         <form onSubmit={submit} className="ml-auto hidden max-w-xs flex-1 md:block">
           <div className="relative">
-            <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+            <Search className="pointer-events-none absolute left-3.5 top-1/2 size-3.5 -translate-y-1/2 text-muted-foreground" />
             <Input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search cameras, trackers…"
-              className="pl-9"
+              placeholder="Search…"
+              className="h-9 rounded-lg border-border/70 bg-surface/80 pl-9"
               aria-label="Search products"
             />
           </div>
@@ -69,7 +69,7 @@ export function Navbar() {
               <Button variant="ghost" size="icon" aria-label="Open cart" className="relative">
                 <ShoppingCart className="size-5" />
                 {count > 0 ? (
-                  <span className="absolute -right-0.5 -top-0.5 flex size-4.5 min-w-4.5 items-center justify-center rounded-full bg-primary px-1 text-[10px] font-bold text-primary-foreground">
+                  <span className="absolute -right-0.5 -top-0.5 flex size-4 min-w-4 items-center justify-center rounded-full bg-primary px-1 text-[9px] font-bold text-primary-foreground">
                     {count}
                   </span>
                 ) : null}
@@ -84,13 +84,14 @@ export function Navbar() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[86vw] max-w-sm overflow-y-auto">
-              <div className="space-y-6 p-6">
+              <div className="space-y-8 p-6">
                 <form onSubmit={submit}>
                   <Input
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     placeholder="Search products"
                     aria-label="Search products"
+                    className="h-11 rounded-lg"
                   />
                 </form>
                 <nav className="grid gap-1">
@@ -99,24 +100,24 @@ export function Navbar() {
                       key={l.to}
                       to={l.to}
                       onClick={() => setOpen(false)}
-                      className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-secondary hover:text-foreground"
+                      className="rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-secondary hover:text-foreground"
                     >
                       {l.label}
                     </Link>
                   ))}
                 </nav>
                 <div>
-                  <p className="px-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  <p className="px-3 text-[0.6875rem] font-semibold tracking-[0.16em] text-muted-foreground uppercase">
                     Categories
                   </p>
-                  <nav className="mt-2 grid gap-1">
+                  <nav className="mt-3 grid gap-1">
                     {categories.map((c) => (
                       <Link
                         key={c.slug}
                         to="/category/$slug"
                         params={{ slug: c.slug }}
                         onClick={() => setOpen(false)}
-                        className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground"
+                        className="rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground"
                       >
                         {c.name}
                       </Link>
@@ -129,15 +130,15 @@ export function Navbar() {
         </div>
       </div>
 
-      <div className="hidden border-t border-border/70 lg:block">
-        <div className="mx-auto flex max-w-7xl items-center gap-1 overflow-x-auto px-4 py-2 sm:px-6">
+      <div className="hidden border-t border-border/50 lg:block">
+        <div className="mx-auto flex max-w-[72rem] items-center gap-7 overflow-x-auto px-5 py-2.5 sm:px-8">
           {categories.map((c) => (
             <Link
               key={c.slug}
               to="/category/$slug"
               params={{ slug: c.slug }}
-              className="whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-              activeProps={{ className: "bg-secondary text-foreground" }}
+              className="whitespace-nowrap text-[0.7rem] font-semibold tracking-[0.14em] text-muted-foreground uppercase transition-colors hover:text-foreground"
+              activeProps={{ className: "text-foreground" }}
             >
               {c.name}
             </Link>

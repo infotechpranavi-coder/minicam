@@ -7,13 +7,13 @@ import { testimonials } from "@/data/catalog";
 export const Route = createFileRoute("/testimonials")({
   head: () => ({
     meta: [
-      { title: "Customer Reviews & Ratings — SentraVue" },
+      { title: "Customer Reviews & Ratings — Mini Camerawala" },
       {
         name: "description",
         content:
-          "Read verified customer reviews of SentraVue mini cameras, WiFi cams, GPS trackers and detectors from buyers across India.",
+          "Read verified customer reviews of Mini Camerawala mini cameras, WiFi cams, GPS trackers and detectors from buyers across India.",
       },
-      { property: "og:title", content: "Customer Reviews & Ratings — SentraVue" },
+      { property: "og:title", content: "Customer Reviews & Ratings — Mini Camerawala" },
       {
         property: "og:description",
         content: "Rated 4.6 out of 5 by 2,400+ verified buyers across India.",
@@ -37,7 +37,7 @@ function Testimonials() {
       <section className="border-b border-border bg-hero">
         <div className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6">
           <p className="text-xs font-semibold uppercase tracking-widest text-primary">Reviews</p>
-          <h1 className="mt-3 font-display text-4xl font-bold sm:text-5xl">What customers say</h1>
+          <h1 className="mt-3 font-display text-4xl tracking-tight sm:text-5xl">What customers say</h1>
           <p className="mt-5 text-sm text-muted-foreground sm:text-base">
             Every review below comes from a verified order. We publish the three-star ones too.
           </p>
@@ -47,7 +47,7 @@ function Testimonials() {
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6">
         <div className="grid gap-8 lg:grid-cols-[300px_1fr]">
           <div className="h-fit rounded-xl border border-border bg-card p-6">
-            <p className="font-display text-5xl font-bold">4.6</p>
+            <p className="font-display text-5xl tracking-tight">4.6</p>
             <Stars rating={4.6} className="mt-2" />
             <p className="mt-2 text-sm text-muted-foreground">Based on 2,412 verified reviews</p>
             <div className="mt-6 space-y-2">

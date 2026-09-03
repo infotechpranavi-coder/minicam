@@ -29,13 +29,13 @@ export const Route = createFileRoute("/shop")({
   validateSearch: searchSchema,
   head: () => ({
     meta: [
-      { title: "Shop All Security Cameras & Gadgets — SentraVue" },
+      { title: "Shop All Security Cameras & Gadgets — Mini Camerawala" },
       {
         name: "description",
         content:
-          "Filter and sort the full SentraVue catalog: pocket, pen and button cameras, WiFi hidden cams, night vision devices, GPS trackers and detectors.",
+          "Filter and sort the full Mini Camerawala catalog: pocket, pen and button cameras, WiFi hidden cams, night vision devices, GPS trackers and detectors.",
       },
-      { property: "og:title", content: "Shop All Security Cameras & Gadgets — SentraVue" },
+      { property: "og:title", content: "Shop All Security Cameras & Gadgets — Mini Camerawala" },
       {
         property: "og:description",
         content: "Filter by category, price, night vision, WiFi and battery life across the full catalog.",
@@ -168,7 +168,7 @@ function Shop() {
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
       <header className="max-w-2xl">
         <p className="text-xs font-semibold uppercase tracking-widest text-primary">Catalog</p>
-        <h1 className="mt-2 font-display text-4xl font-bold">All products</h1>
+        <h1 className="mt-2 font-display text-4xl tracking-tight">All products</h1>
         <p className="mt-3 text-sm text-muted-foreground">
           {products.length} tested devices across cameras, trackers and detectors. Filter by what matters to you.
         </p>

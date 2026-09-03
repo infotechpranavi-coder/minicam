@@ -6,13 +6,13 @@ import { Reveal } from "@/components/site/Reveal";
 export const Route = createFileRoute("/how-it-works")({
   head: () => ({
     meta: [
-      { title: "How It Works — Setup, App Pairing & Storage | SentraVue" },
+      { title: "How It Works — Setup, App Pairing & Storage | Mini Camerawala" },
       {
         name: "description",
         content:
-          "Four simple steps to set up a SentraVue device: charge it, insert an SD card, pair the app over 2.4GHz WiFi and start recording.",
+          "Four simple steps to set up a Mini Camerawala device: charge it, insert an SD card, pair the app over 2.4GHz WiFi and start recording.",
       },
-      { property: "og:title", content: "How It Works — Setup, App Pairing & Storage | SentraVue" },
+      { property: "og:title", content: "How It Works — Setup, App Pairing & Storage | Mini Camerawala" },
       {
         property: "og:description",
         content: "Visual setup guide covering charging, SD cards, app pairing and footage playback.",
@@ -38,7 +38,7 @@ const steps = [
   {
     icon: Smartphone,
     title: "Pair the app",
-    body: "Install the SentraVue app, press and hold the pair button for five seconds, then join the device hotspot and select your 2.4GHz network.",
+    body: "Install the Mini Camerawala app, press and hold the pair button for five seconds, then join the device hotspot and select your 2.4GHz network.",
     detail: "Pairing typically completes in under three minutes. 5GHz networks are not supported.",
   },
   {
@@ -55,9 +55,9 @@ function HowItWorks() {
       <section className="border-b border-border bg-hero">
         <div className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6">
           <p className="text-xs font-semibold uppercase tracking-widest text-primary">How it works</p>
-          <h1 className="mt-3 font-display text-4xl font-bold sm:text-5xl">Recording in about ten minutes</h1>
+          <h1 className="mt-3 font-display text-4xl tracking-tight sm:text-5xl">Recording in about ten minutes</h1>
           <p className="mt-5 text-sm text-muted-foreground sm:text-base">
-            Every SentraVue device ships with a printed quick-start card. Here is the same flow, in full.
+            Every Mini Camerawala device ships with a printed quick-start card. Here is the same flow, in full.
           </p>
         </div>
       </section>
@@ -73,7 +73,7 @@ function HowItWorks() {
                 <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                   Step {i + 1}
                 </p>
-                <h2 className="mt-1 font-display text-xl font-bold">{s.title}</h2>
+                <h2 className="mt-1 font-display text-xl tracking-tight">{s.title}</h2>
                 <p className="mt-2 text-sm text-muted-foreground">{s.body}</p>
                 <p className="mt-2 rounded-lg border border-border bg-card p-3 text-xs text-muted-foreground">
                   {s.detail}
@@ -115,7 +115,7 @@ function HowItWorks() {
       </section>
 
       <section className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6">
-        <h2 className="font-display text-3xl font-bold">Still stuck?</h2>
+        <h2 className="font-display text-3xl tracking-tight">Still stuck?</h2>
         <p className="mt-3 text-sm text-muted-foreground">
           Our support team walks customers through setup on WhatsApp seven days a week.
         </p>

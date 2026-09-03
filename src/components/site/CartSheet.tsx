@@ -15,7 +15,7 @@ export function CartSheet({ trigger }: { trigger: ReactNode }) {
       <SheetTrigger asChild>{trigger}</SheetTrigger>
       <SheetContent side="right" className="flex w-[90vw] max-w-md flex-col">
         <div className="border-b border-border p-6">
-          <h2 className="font-display text-lg font-bold">Your cart</h2>
+          <h2 className="font-display text-lg tracking-tight">Your cart</h2>
           <p className="text-sm text-muted-foreground">
             {lines.length === 0 ? "No items yet" : `${lines.length} product(s)`}
           </p>
@@ -65,7 +65,7 @@ export function CartSheet({ trigger }: { trigger: ReactNode }) {
         <div className="space-y-3 border-t border-border p-6">
           <div className="flex items-center justify-between text-sm">
             <span className="text-muted-foreground">Subtotal</span>
-            <span className="font-display text-lg font-bold">{formatPrice(subtotal)}</span>
+            <span className="font-display text-lg tracking-tight">{formatPrice(subtotal)}</span>
           </div>
           <p className="text-xs text-muted-foreground">
             {subtotal >= 999 ? "Free shipping applied." : "Add ₹999+ for free shipping."}

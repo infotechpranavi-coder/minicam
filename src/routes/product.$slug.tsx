@@ -17,10 +17,10 @@ export const Route = createFileRoute("/product/$slug")({
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
-      return { meta: [{ title: "Product unavailable — SentraVue" }, { name: "robots", content: "noindex" }] };
+      return { meta: [{ title: "Product unavailable — Mini Camerawala" }, { name: "robots", content: "noindex" }] };
     }
     const { product } = loaderData;
-    const title = `${product.name} — SentraVue`;
+    const title = `${product.name} — Mini Camerawala`;
     return {
       meta: [
         { title },
@@ -91,7 +91,7 @@ function ProductPage() {
               {product.badge}
             </span>
           ) : null}
-          <h1 className="mt-3 font-display text-3xl font-bold sm:text-4xl">{product.name}</h1>
+          <h1 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">{product.name}</h1>
           <div className="mt-3 flex items-center gap-2 text-sm text-muted-foreground">
             <Stars rating={product.rating} />
             {product.rating.toFixed(1)} · {product.reviewCount} reviews
@@ -99,7 +99,7 @@ function ProductPage() {
           <p className="mt-4 text-sm text-muted-foreground">{product.description}</p>
 
           <div className="mt-6 flex items-end gap-3">
-            <span className="font-display text-3xl font-bold">{formatPrice(product.price)}</span>
+            <span className="font-display text-3xl tracking-tight">{formatPrice(product.price)}</span>
             <span className="text-sm text-muted-foreground line-through">{formatPrice(product.mrp)}</span>
             <span className="text-sm font-semibold text-success">
               Save {formatPrice(product.mrp - product.price)}
@@ -198,7 +198,7 @@ function ProductPage() {
 
       {related.length ? (
         <section className="mt-16">
-          <h2 className="font-display text-2xl font-bold">Related products</h2>
+          <h2 className="font-display text-2xl tracking-tight">Related products</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {related.map((p) => (
               <ProductCard key={p.slug} product={p} />
