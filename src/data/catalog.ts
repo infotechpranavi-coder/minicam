@@ -107,7 +107,7 @@ export const categories: Category[] = [
 export const products: Product[] = [
   {
     slug: "sentra-mini-cube-1080",
-    name: "Camerawala Mini Cube 1080p",
+    name: "MiCaWas Mini Cube 1080p",
     category: "pocket-cameras",
     price: 2499,
     mrp: 3499,
@@ -136,7 +136,7 @@ export const products: Product[] = [
   },
   {
     slug: "sentra-executive-pen",
-    name: "Camerawala Executive Pen Cam",
+    name: "MiCaWas Executive Pen Cam",
     category: "pen-cameras",
     price: 1999,
     mrp: 2799,
@@ -165,7 +165,7 @@ export const products: Product[] = [
   },
   {
     slug: "sentra-button-module",
-    name: "Camerawala Button Cam Module",
+    name: "MiCaWas Button Cam Module",
     category: "button-cameras",
     price: 2299,
     mrp: 2999,
@@ -193,7 +193,7 @@ export const products: Product[] = [
   },
   {
     slug: "sentra-charger-wifi-cam",
-    name: "Camerawala Charger WiFi Cam",
+    name: "MiCaWas Charger WiFi Cam",
     category: "wifi-cameras",
     price: 3299,
     mrp: 4499,
@@ -204,7 +204,7 @@ export const products: Product[] = [
     gallery: [charger, pocket, button],
     short: "A working USB charger with live WiFi streaming and motion alerts.",
     description:
-      "Charges your phone and streams live 1080p video to the Mini Camerawala app. Motion alerts land on your phone in seconds and footage saves to SD or cloud.",
+      "Charges your phone and streams live 1080p video to the MiCaWas app. Motion alerts land on your phone in seconds and footage saves to SD or cloud.",
     nightVision: true,
     wifi: true,
     batteryHours: 0,
@@ -222,7 +222,7 @@ export const products: Product[] = [
   },
   {
     slug: "sentra-night-watch",
-    name: "Camerawala Night Vision Watch",
+    name: "MiCaWas Night Vision Watch",
     category: "night-vision",
     price: 4499,
     mrp: 5999,
@@ -251,7 +251,7 @@ export const products: Product[] = [
   },
   {
     slug: "sentra-gps-tracker-4g",
-    name: "Camerawala GPS Tracker 4G",
+    name: "MiCaWas GPS Tracker 4G",
     category: "trackers",
     price: 2799,
     mrp: 3699,
@@ -279,7 +279,7 @@ export const products: Product[] = [
   },
   {
     slug: "sentra-rf-detector-pro",
-    name: "Camerawala RF Detector Pro",
+    name: "MiCaWas RF Detector Pro",
     category: "detectors",
     price: 3599,
     mrp: 4799,
@@ -308,7 +308,7 @@ export const products: Product[] = [
   },
   {
     slug: "sentra-powerbank-cam",
-    name: "Camerawala Power Bank Cam",
+    name: "MiCaWas Power Bank Cam",
     category: "wifi-cameras",
     price: 3899,
     mrp: 4999,
@@ -337,7 +337,7 @@ export const products: Product[] = [
   },
   {
     slug: "sentra-keychain-cam",
-    name: "Camerawala Keychain Cam",
+    name: "MiCaWas Keychain Cam",
     category: "pocket-cameras",
     price: 1499,
     mrp: 1999,
@@ -366,7 +366,7 @@ export const products: Product[] = [
   },
   {
     slug: "sentra-ir-bullet-mini",
-    name: "Camerawala IR Bullet Mini",
+    name: "MiCaWas IR Bullet Mini",
     category: "night-vision",
     price: 2999,
     mrp: 3899,
@@ -394,7 +394,7 @@ export const products: Product[] = [
   },
   {
     slug: "sentra-socket-cam",
-    name: "Camerawala Socket Cam",
+    name: "MiCaWas Socket Cam",
     category: "wifi-cameras",
     price: 3199,
     mrp: 4199,
@@ -422,7 +422,7 @@ export const products: Product[] = [
   },
   {
     slug: "sentra-mini-tracker-tag",
-    name: "Camerawala Mini Tracker Tag",
+    name: "MiCaWas Mini Tracker Tag",
     category: "trackers",
     price: 1299,
     mrp: 1799,
@@ -485,7 +485,7 @@ export const testimonials: Review[] = [
     date: "March 2026",
     quote:
       "Installed the Charger WiFi Cam in our shop stockroom. App pairing took under three minutes and the motion alerts are genuinely instant.",
-    product: "Camerawala Charger WiFi Cam",
+    product: "MiCaWas Charger WiFi Cam",
   },
   {
     name: "Priya Deshpande",
@@ -494,7 +494,7 @@ export const testimonials: Review[] = [
     date: "February 2026",
     quote:
       "I travel for work and sweep every hotel room with the RF Detector Pro now. Simple to use and the lens finder actually works.",
-    product: "Camerawala RF Detector Pro",
+    product: "MiCaWas RF Detector Pro",
   },
   {
     name: "Arjun Sethi",
@@ -503,7 +503,7 @@ export const testimonials: Review[] = [
     date: "February 2026",
     quote:
       "Battery on the Mini Cube lasts a full shift. Footage is sharp in daylight and usable indoors with the IR on.",
-    product: "Camerawala Mini Cube 1080p",
+    product: "MiCaWas Mini Cube 1080p",
   },
   {
     name: "Neha Iyer",
@@ -520,7 +520,7 @@ export const testimonials: Review[] = [
     date: "January 2026",
     quote:
       "The GPS Tracker has been on our delivery van for four months. Geofence alerts saved us a lot of guesswork.",
-    product: "Camerawala GPS Tracker 4G",
+    product: "MiCaWas GPS Tracker 4G",
   },
   {
     name: "Sana Qureshi",
@@ -529,7 +529,7 @@ export const testimonials: Review[] = [
     date: "December 2025",
     quote:
       "Pen cam is discreet and writes properly, which sounds obvious but the one I bought earlier elsewhere did not.",
-    product: "Camerawala Executive Pen Cam",
+    product: "MiCaWas Executive Pen Cam",
   },
 ];
 

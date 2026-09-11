@@ -1,19 +1,22 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FlaskConical, Gauge, PackageCheck, Target } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Reveal } from "@/components/site/Reveal";
+import { CountUp, Reveal } from "@/components/site/Reveal";
+import { PageCta } from "@/components/site/PageCta";
+import { PageHero } from "@/components/site/PageHero";
 import aboutLab from "@/assets/about-lab.jpg";
+import lifestyleCctv from "@/assets/lifestyle-cctv.jpg";
+import lifestyleRetail from "@/assets/lifestyle-retail.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Mini Camerawala — Security Gadgets, Tested Properly" },
+      { title: "About MiCaWas — Security Gadgets, Tested Properly" },
       {
         name: "description",
         content:
-          "Mini Camerawala builds a curated catalog of mini security cameras and trackers, tested in-house across imaging, battery and connectivity before we list them.",
+          "MiCaWas builds a curated catalog of mini security cameras and trackers, tested in-house across imaging, battery and connectivity before we list them.",
       },
-      { property: "og:title", content: "About Mini Camerawala — Security Gadgets, Tested Properly" },
+      { property: "og:title", content: "About MiCaWas — Security Gadgets, Tested Properly" },
       {
         property: "og:description",
         content: "Our story, our mission around personal and property security, and how we test every device.",
@@ -49,79 +52,114 @@ const steps = [
 function About() {
   return (
     <div>
-      <section className="border-b border-border bg-hero">
-        <div className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6">
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary">About us</p>
-          <h1 className="mt-3 font-display text-4xl tracking-tight sm:text-5xl">
-            Security gadgets deserve real engineering standards
-          </h1>
-          <p className="mt-5 text-sm text-muted-foreground sm:text-base">
-            Mini Camerawala started in 2019 after our founders bought four "1080p" mini cameras online and found that not one
-            of them actually recorded at 1080p. We decided to build the store we wished existed.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        label="About us"
+        title="Security gadgets deserve real engineering standards"
+        body="MiCaWas started in 2019 after our founders bought four “1080p” mini cameras online and found that not one of them actually recorded at 1080p. We decided to build the store we wished existed."
+        image={lifestyleCctv}
+        imageAlt="Security camera monitoring a commercial space"
+      />
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
-        <div className="grid items-center gap-10 lg:grid-cols-2">
-          <Reveal>
-            <div className="overflow-hidden rounded-2xl border border-border shadow-elevated">
-              <img
-                src={aboutLab}
-                alt="Engineers testing miniature camera electronics on a workbench"
-                loading="lazy"
-                width={1600}
-                height={900}
-                className="w-full object-cover"
-              />
-            </div>
-          </Reveal>
-          <Reveal delay={80}>
-            <h2 className="font-display text-3xl tracking-tight">Our mission</h2>
-            <p className="mt-4 text-sm text-muted-foreground">
-              Most people who buy a mini camera are not hobbyists. They are a shop owner who lost stock, a parent
-              checking on an elderly relative's caregiver, or a traveller who wants to sweep a hotel room. They need
-              hardware that simply works on the first evening.
-            </p>
-            <p className="mt-4 text-sm text-muted-foreground">
-              Our mission is to make personal and property security accessible without the guesswork — honest specs,
-              plain-English setup, and support that answers on a Sunday. We also publish clear guidance on lawful use,
-              because a security product should protect people, never invade their privacy.
-            </p>
-            <div className="mt-8 grid grid-cols-3 gap-6">
-              {[
-                ["2019", "Founded in Mumbai"],
-                ["42", "Point QC checklist"],
-                ["18k+", "Orders shipped"],
-              ].map(([v, l]) => (
-                <div key={l}>
-                  <p className="font-display text-2xl tracking-tight text-primary">{v}</p>
-                  <p className="text-xs text-muted-foreground">{l}</p>
+      <section className="band-light section-pad">
+        <div className="container-page">
+          <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+            <Reveal variant="scale">
+              <div className="overflow-hidden rounded-xl bg-secondary shadow-elevated ring-1 ring-border">
+                <img
+                  src={aboutLab}
+                  alt="Engineers testing miniature camera electronics on a workbench"
+                  loading="lazy"
+                  width={1600}
+                  height={900}
+                  className="aspect-[16/10] w-full object-cover"
+                />
+              </div>
+            </Reveal>
+            <Reveal delay={80}>
+              <p className="section-label">Our mission</p>
+              <h2 className="section-title">Hardware that works on the first evening</h2>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                Most people who buy a mini camera are not hobbyists. They are a shop owner who lost stock, a parent
+                checking on an elderly relative&apos;s caregiver, or a traveller who wants to sweep a hotel room.
+              </p>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                Our mission is to make personal and property security accessible without the guesswork — honest specs,
+                plain-English setup, and support that answers on a Sunday.
+              </p>
+              <div className="mt-8 grid grid-cols-3 gap-4 border-t border-border pt-6">
+                <div>
+                  <p className="font-display text-2xl tracking-tight text-primary">2019</p>
+                  <p className="mt-1 text-xs text-muted-foreground">Founded in Mumbai</p>
                 </div>
-              ))}
-            </div>
-          </Reveal>
+                <div>
+                  <p className="font-display text-2xl tracking-tight text-primary">
+                    <CountUp value={42} />
+                  </p>
+                  <p className="mt-1 text-xs text-muted-foreground">Point QC checklist</p>
+                </div>
+                <div>
+                  <p className="font-display text-2xl tracking-tight text-primary">
+                    <CountUp value={18} suffix="k+" />
+                  </p>
+                  <p className="mt-1 text-xs text-muted-foreground">Orders shipped</p>
+                </div>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
-      <section className="border-y border-border bg-surface">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
+      <section className="band-mist section-pad">
+        <div className="container-page">
+          <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+            <Reveal>
+              <p className="section-label">Where it matters</p>
+              <h2 className="section-title">Built for shops, homes and offices</h2>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                From retail stockrooms to family homes, our catalog is curated for real Indian use cases — not lab demos.
+                Every listing explains what the device is for and where it fits.
+              </p>
+              <Link
+                to="/shop"
+                className="mt-6 inline-flex text-sm font-semibold text-primary transition-colors hover:text-foreground"
+              >
+                Browse the catalog →
+              </Link>
+            </Reveal>
+            <Reveal delay={80} variant="scale">
+              <div className="overflow-hidden rounded-xl shadow-elevated ring-1 ring-border">
+                <img
+                  src={lifestyleRetail}
+                  alt="Retail shop interior where monitoring devices are commonly used"
+                  loading="lazy"
+                  className="aspect-[16/10] w-full object-cover"
+                />
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      <section className="band-slate section-pad">
+        <div className="container-page">
           <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-widest text-primary">Quality process</p>
-            <h2 className="mt-2 font-display text-3xl tracking-tight">How a device earns a listing</h2>
+            <p className="section-label">Quality process</p>
+            <h2 className="section-title">How a device earns a listing</h2>
           </Reveal>
-          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((s, i) => (
-              <Reveal key={s.title} delay={i * 60}>
-                <div className="h-full rounded-xl border border-border bg-card p-6">
-                  <span className="flex size-10 items-center justify-center rounded-lg bg-primary/15 text-primary">
-                    <s.icon className="size-5" />
+              <Reveal key={s.title} delay={i * 60} variant="scale">
+                <div className="group h-full rounded-xl border border-white/15 bg-white p-5 text-slate-900 shadow-[0_16px_40px_-24px_oklch(0_0_0_/_0.55)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_48px_-20px_oklch(0_0_0_/_0.6)]">
+                  <span className="flex size-10 items-center justify-center rounded-lg bg-gradient-primary text-white shadow-glow">
+                    <s.icon className="size-4 stroke-[2]" />
                   </span>
-                  <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    Step {i + 1}
+                  <p className="mt-4 text-[0.6875rem] font-semibold tracking-[0.14em] text-slate-500 uppercase">
+                    Step {String(i + 1).padStart(2, "0")}
                   </p>
-                  <h3 className="mt-1 font-semibold">{s.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{s.body}</p>
+                  <h3 className="mt-2 font-display text-[1.05rem] font-semibold tracking-tight text-slate-900">
+                    {s.title}
+                  </h3>
+                  <p className="mt-2.5 text-sm leading-relaxed text-slate-600">{s.body}</p>
                 </div>
               </Reveal>
             ))}
@@ -129,20 +167,12 @@ function About() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6">
-        <h2 className="font-display text-3xl tracking-tight">See what made the cut</h2>
-        <p className="mt-3 text-sm text-muted-foreground">
-          Twelve devices currently pass our checklist. Every one carries a 12-month warranty.
-        </p>
-        <div className="mt-6 flex justify-center gap-3">
-          <Button asChild size="lg">
-            <Link to="/shop">Browse the catalog</Link>
-          </Button>
-          <Button asChild size="lg" variant="outline">
-            <Link to="/contact">Talk to us</Link>
-          </Button>
-        </div>
-      </section>
+      <PageCta
+        title="See what made the cut"
+        body="Twelve devices currently pass our checklist. Every one carries a 12-month warranty."
+        primary={{ to: "/shop", label: "Browse the catalog" }}
+        secondary={{ to: "/contact", label: "Talk to us" }}
+      />
     </div>
   );
 }

@@ -21,7 +21,11 @@ import {
   PaginationLink,
 } from "@/components/ui/pagination";
 import { ProductCard } from "@/components/site/ProductCard";
+import { Reveal } from "@/components/site/Reveal";
+import { PageCta } from "@/components/site/PageCta";
+import { PageHero } from "@/components/site/PageHero";
 import { categories, products, formatPrice, type CategorySlug } from "@/data/catalog";
+import lifestyleCctv from "@/assets/lifestyle-cctv.jpg";
 
 const searchSchema = z.object({ q: z.string().optional() });
 
@@ -29,13 +33,13 @@ export const Route = createFileRoute("/shop")({
   validateSearch: searchSchema,
   head: () => ({
     meta: [
-      { title: "Shop All Security Cameras & Gadgets — Mini Camerawala" },
+      { title: "Shop All Security Cameras & Gadgets — MiCaWas" },
       {
         name: "description",
         content:
-          "Filter and sort the full Mini Camerawala catalog: pocket, pen and button cameras, WiFi hidden cams, night vision devices, GPS trackers and detectors.",
+          "Filter and sort the full MiCaWas catalog: pocket, pen and button cameras, WiFi hidden cams, night vision devices, GPS trackers and detectors.",
       },
-      { property: "og:title", content: "Shop All Security Cameras & Gadgets — Mini Camerawala" },
+      { property: "og:title", content: "Shop All Security Cameras & Gadgets — MiCaWas" },
       {
         property: "og:description",
         content: "Filter by category, price, night vision, WiFi and battery life across the full catalog.",
@@ -45,7 +49,7 @@ export const Route = createFileRoute("/shop")({
   component: Shop,
 });
 
-const PAGE_SIZE = 6;
+const PAGE_SIZE = 8;
 
 function Shop() {
   const { q } = Route.useSearch();
@@ -98,9 +102,9 @@ function Shop() {
   };
 
   const filterPanel = (
-    <div className="space-y-8">
+    <div className="space-y-7">
       <div>
-        <h3 className="text-sm font-semibold uppercase tracking-wider">Category</h3>
+        <h3 className="text-[0.7rem] font-semibold tracking-[0.16em] text-muted-foreground uppercase">Category</h3>
         <div className="mt-3 space-y-2.5">
           {categories.map((c) => (
             <div key={c.slug} className="flex items-center gap-2.5">
@@ -118,7 +122,7 @@ function Shop() {
       </div>
 
       <div>
-        <h3 className="text-sm font-semibold uppercase tracking-wider">Max price</h3>
+        <h3 className="text-[0.7rem] font-semibold tracking-[0.16em] text-muted-foreground uppercase">Max price</h3>
         <Slider
           className="mt-4"
           min={1000}
@@ -134,7 +138,7 @@ function Shop() {
       </div>
 
       <div>
-        <h3 className="text-sm font-semibold uppercase tracking-wider">Features</h3>
+        <h3 className="text-[0.7rem] font-semibold tracking-[0.16em] text-muted-foreground uppercase">Features</h3>
         <div className="mt-3 space-y-2.5">
           {[
             { id: "nv", label: "Night vision", value: nightVision, set: setNightVision },
@@ -158,100 +162,115 @@ function Shop() {
         </div>
       </div>
 
-      <Button variant="outline" className="w-full" onClick={reset}>
+      <Button variant="outline" className="w-full rounded-full" onClick={reset}>
         Reset filters
       </Button>
     </div>
   );
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
-      <header className="max-w-2xl">
-        <p className="text-xs font-semibold uppercase tracking-widest text-primary">Catalog</p>
-        <h1 className="mt-2 font-display text-4xl tracking-tight">All products</h1>
-        <p className="mt-3 text-sm text-muted-foreground">
-          {products.length} tested devices across cameras, trackers and detectors. Filter by what matters to you.
-        </p>
-      </header>
+    <div>
+      <PageHero
+        label="Catalog"
+        title="All products"
+        body={`${products.length} tested devices across cameras, trackers and detectors. Filter by what matters to you.`}
+        image={lifestyleCctv}
+        imageAlt="Security camera for homes, shops and offices"
+      />
 
-      <div className="mt-10 grid gap-8 lg:grid-cols-[260px_1fr]">
-        <aside className="hidden lg:block">
-          <div className="sticky top-32 rounded-xl border border-border bg-card p-6">{filterPanel}</div>
-        </aside>
+      <section className="band-light section-pad">
+        <div className="container-page">
+          <div className="grid gap-6 lg:grid-cols-[240px_1fr] lg:gap-7">
+            <aside className="hidden lg:block">
+              <div className="sticky top-32 rounded-xl border border-border bg-card p-5 shadow-elevated">
+                {filterPanel}
+              </div>
+            </aside>
 
-        <div>
-          <div className="flex flex-wrap items-center gap-3">
-            <Input
-              value={query}
-              onChange={(e) => {
-                setQuery(e.target.value);
-                setPage(1);
-              }}
-              placeholder="Search products"
-              aria-label="Search products"
-              className="max-w-xs"
-            />
-            <Select
-              value={sort}
-              onValueChange={(v) => {
-                setSort(v);
-                setPage(1);
-              }}
-            >
-              <SelectTrigger className="w-48" aria-label="Sort products">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="featured">Featured</SelectItem>
-                <SelectItem value="price-asc">Price: low to high</SelectItem>
-                <SelectItem value="price-desc">Price: high to low</SelectItem>
-                <SelectItem value="rating">Top rated</SelectItem>
-              </SelectContent>
-            </Select>
-            <span className="ml-auto text-sm text-muted-foreground">{filtered.length} results</span>
-          </div>
+            <div>
+              <div className="flex flex-wrap items-center gap-3">
+                <Input
+                  value={query}
+                  onChange={(e) => {
+                    setQuery(e.target.value);
+                    setPage(1);
+                  }}
+                  placeholder="Search products"
+                  aria-label="Search products"
+                  className="h-10 max-w-xs rounded-full"
+                />
+                <Select
+                  value={sort}
+                  onValueChange={(v) => {
+                    setSort(v);
+                    setPage(1);
+                  }}
+                >
+                  <SelectTrigger className="h-10 w-48 rounded-full" aria-label="Sort products">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="featured">Featured</SelectItem>
+                    <SelectItem value="price-asc">Price: low to high</SelectItem>
+                    <SelectItem value="price-desc">Price: high to low</SelectItem>
+                    <SelectItem value="rating">Top rated</SelectItem>
+                  </SelectContent>
+                </Select>
+                <span className="ml-auto text-sm text-muted-foreground">{filtered.length} results</span>
+              </div>
 
-          <details className="mt-4 rounded-xl border border-border bg-card p-4 lg:hidden">
-            <summary className="flex cursor-pointer items-center gap-2 text-sm font-semibold">
-              <SlidersHorizontal className="size-4" /> Filters
-            </summary>
-            <div className="mt-6">{filterPanel}</div>
-          </details>
+              <details className="mt-4 rounded-xl border border-border bg-card p-4 lg:hidden">
+                <summary className="flex cursor-pointer items-center gap-2 text-sm font-semibold">
+                  <SlidersHorizontal className="size-4" /> Filters
+                </summary>
+                <div className="mt-6">{filterPanel}</div>
+              </details>
 
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-            {visible.map((p) => (
-              <ProductCard key={p.slug} product={p} />
-            ))}
-          </div>
-
-          {filtered.length === 0 ? (
-            <p className="mt-10 rounded-xl border border-border bg-card p-8 text-center text-sm text-muted-foreground">
-              No products match those filters. Try widening the price range or clearing feature filters.
-            </p>
-          ) : null}
-
-          {pages > 1 ? (
-            <Pagination className="mt-10">
-              <PaginationContent>
-                {Array.from({ length: pages }, (_, i) => i + 1).map((n) => (
-                  <PaginationItem key={n}>
-                    <PaginationLink
-                      href="#"
-                      isActive={n === current}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setPage(n);
-                      }}
-                    >
-                      {n}
-                    </PaginationLink>
-                  </PaginationItem>
+              <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+                {visible.map((p, i) => (
+                  <Reveal key={p.slug} delay={i * 40} variant="scale">
+                    <ProductCard product={p} />
+                  </Reveal>
                 ))}
-              </PaginationContent>
-            </Pagination>
-          ) : null}
+              </div>
+
+              {filtered.length === 0 ? (
+                <p className="mt-10 rounded-xl border border-border bg-card p-8 text-center text-sm text-muted-foreground">
+                  No products match those filters. Try widening the price range or clearing feature filters.
+                </p>
+              ) : null}
+
+              {pages > 1 ? (
+                <Pagination className="mt-10">
+                  <PaginationContent>
+                    {Array.from({ length: pages }, (_, i) => i + 1).map((n) => (
+                      <PaginationItem key={n}>
+                        <PaginationLink
+                          href="#"
+                          isActive={n === current}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setPage(n);
+                          }}
+                        >
+                          {n}
+                        </PaginationLink>
+                      </PaginationItem>
+                    ))}
+                  </PaginationContent>
+                </Pagination>
+              ) : null}
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
+
+      <PageCta
+        title="Need help choosing a device?"
+        body="Tell us your use case — shop, home, travel or vehicle — and we will point you to the right model."
+        primary={{ to: "/contact", label: "Ask support" }}
+        secondary={{ to: "/how-it-works", label: "How it works" }}
+      />
     </div>
   );
 }
